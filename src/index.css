@@ -2,22 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    --White: hsl(0, 0%, 100%);
-    }
-
-*{
-    padding: 0px;
-    margin: 0px;
-    font-family: "Work Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+:root {
+  --White: hsl(0, 0%, 100%);
 }
 
-h1{
-    font-weight: 700;
-    text-shadow: 1.5px 0 #000000;
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
+
+h1 {
+  font-weight: 700;
 }
 /* 
 @media screen and (min-width: 640px) {

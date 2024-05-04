@@ -1,18 +1,6 @@
-Checklist:
-- Index.html
-  - Title
-  - Fonts
+# Frontend Mentor - Rest Countries (Under Development)
 
--Move images to src/assets
-
--vite.config.js
-  - Set base /<NameOfRepository>
-
--npm run dev
--npm run deploy
-
-# Frontend Mentor - 
-This is a solution  
+This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -28,14 +16,16 @@ This is a solution
 
 ### Screenshot
 
-![Screenshot](./Screenshot.jpeg)
+![Screenshot](./screenshots/0.1.0%20light.jpeg)
+![Screenshot](./screenshots/0.1.0%20dark.jpeg)
 
 ### Links
 
-- Challenge URL:  [Frontend Mentor]()
+- Challenge URL: [Frontend Mentor]()
 - Live Site URL: [Live URL](https://fg-abc.github.io/FEM-/)
 
 ## My process
+
 I built this project with React and Tailwind CSS.
 
 ### Built with
@@ -52,13 +42,13 @@ I built this project with React and Tailwind CSS.
 During the making of this project, I've practiced various skills in HTML and CSS, and React.
 
 In CSS,
-- 
+
+-
 
 In React,
-- 
 
+-
 
 ## Author
 
 - Frontend Mentor - [@FG-ABC](https://www.frontendmentor.io/profile/FG-ABC)
-
