@@ -16,8 +16,8 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 ### Screenshot
 
-![Screenshot](./screenshots/0.1.0%20light.jpeg)
-![Screenshot](./screenshots/0.1.0%20dark.jpeg)
+![Screenshot](./screenshots/0.2.0%20light.jpeg)
+![Screenshot](./screenshots/0.2.0%20dark.jpeg)
 
 ### Links
 

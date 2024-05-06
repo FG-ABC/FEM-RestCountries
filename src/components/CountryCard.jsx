@@ -3,7 +3,7 @@ import React from "react";
 const CountryCard = ({ details, darkMode }) => {
   return (
     <div
-      className={`${darkMode ? "bg-DarkBlueElement text-white" : "text-LightText bg-white"} flex w-full flex-col justify-between rounded-md shadow-md md:w-56`}
+      className={`flex w-full flex-col justify-between rounded-md shadow-md duration-150 ease-in-out md:w-56 hover:md:scale-110 ${darkMode ? "bg-DarkBlueElement text-white" : "bg-white text-LightText"}`}
     >
       <div className="h-32 overflow-hidden rounded-t-md">
         <img
