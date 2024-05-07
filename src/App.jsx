@@ -23,12 +23,24 @@ const App = () => {
   }, []);
 
   const searchHandler = (e) => {
-    const searchQuery = e.target.value;
+    const searchQuery = e.target.value.toLowerCase();
     const filteredLIst = storedDataList.filter((item) => {
       if (
         item.name.common.toLowerCase().includes(searchQuery) ||
         item.name.official.toLowerCase().includes(searchQuery)
       ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    setDataList(filteredLIst);
+  };
+
+  const filterHandler = (e) => {
+    const filterValue = e.target.value;
+    const filteredLIst = storedDataList.filter((item) => {
+      if (item.region === filterValue) {
         return true;
       } else {
         return false;
@@ -63,22 +75,50 @@ const App = () => {
         </button>
       </header>
 
-      {/* Search Bar */}
-      <div
-        className={`mt-6 w-10/12 max-w-[500px] md:ml-10 md:w-full md:self-start`}
-      >
+      {/* Query Bar */}
+      <div className="w-10/12 md:mx-1 md:flex md:w-full md:justify-between">
+        {/* Search Bar */}
         <div
-          className={`flex h-full w-full items-center rounded-md ${darkMode ? "bg-DarkBlueElement" : "bg-white"}`}
+          className={`mt-6 w-full max-w-[500px] shadow-md md:ml-14 md:w-full md:self-start`}
         >
-          <img
-            src={darkMode ? searchDark : searchLight}
-            className={`mx-5 h-4`}
-          ></img>
-          <input
-            className={`h-full w-full rounded-md py-4 text-xs ${darkMode ? "bg-DarkBlueElement text-white" : "bg-white text-LightInput"}`}
-            placeholder="Search for a country..."
-            onChange={searchHandler}
-          ></input>
+          <div
+            className={`flex h-full w-full items-center rounded-md ${darkMode ? "bg-DarkBlueElement" : "bg-white"}`}
+          >
+            <img
+              src={darkMode ? searchDark : searchLight}
+              className={`mx-5 h-4`}
+            ></img>
+            <input
+              className={`h-full w-full rounded-md py-4 text-xs focus:outline-none ${darkMode ? "bg-DarkBlueElement text-white" : "bg-white text-LightInput"}`}
+              placeholder="Search for a country..."
+              onChange={searchHandler}
+            ></input>
+          </div>
+        </div>
+
+        {/* Filter Dropdown */}
+        <div
+          className={`mt-6 w-10/12 max-w-[500px] md:mr-14 md:w-1/6 md:self-end`}
+        >
+          <div
+            className={`flex h-full w-4/6 items-center rounded-md md:w-full ${darkMode ? "bg-DarkBlueElement" : "bg-white"}`}
+          >
+            <select
+              defaultValue={""}
+              className={`h-full w-full rounded-md border-x-8 border-transparent px-3 py-4 text-xs  shadow-md focus:outline-none ${darkMode ? "bg-DarkBlueElement text-white" : "bg-white text-LightInput"}`}
+              placeholder="Filter by Region"
+              onChange={filterHandler}
+            >
+              <option value="" disabled selected hidden>
+                Filter by region
+              </option>
+              <option value="Africa">Africa</option>
+              <option value="Americas">America</option>
+              <option value="Asia">Asia</option>
+              <option value="Europe">Europe</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+          </div>
         </div>
       </div>
 
