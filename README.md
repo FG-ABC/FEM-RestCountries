@@ -41,13 +41,9 @@ I built this project with React and Tailwind CSS.
 
 During the making of this project, I've practiced various skills in HTML and CSS, and React.
 
-In CSS,
-
--
-
 In React,
 
--
+- How to use react router to create a multipage website
 
 ## Author
 

@@ -1,25 +1,19 @@
 import { React, useEffect, useState } from "react";
-import CountryList from "./components/CountryList";
-import axios from "axios";
-import solidMoon from "./assets/moon-solid.svg";
-import regularMoon from "./assets/moon-regular.svg";
-import searchLight from "./assets/search-light.svg";
-import searchDark from "./assets/search-dark.svg";
+import CountryList from "../components/CountryList";
+import Header from "../components/Header";
+import searchLight from "../assets/search-light.svg";
+import searchDark from "../assets/search-dark.svg";
+import { useLoaderData } from "react-router-dom";
 
-const baseURL = "https://restcountries.com/v3.1/all";
-
-const App = () => {
+const Home = () => {
   const [dataList, setDataList] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
-  const [storedDataList, setStoredDataList] = useState([]);
-
+  const storedDataList = useLoaderData().data;
   // Load datalist on page load and store in global variable
   useEffect(() => {
     setTimeout(async () => {
-      const response = await axios.get(baseURL);
-      setDataList(response.data);
-      setStoredDataList(response.data);
-    }, 1000);
+      setDataList(storedDataList);
+    }, 0);
   }, []);
 
   const searchHandler = (e) => {
@@ -54,26 +48,7 @@ const App = () => {
       className={`flex min-h-screen w-full flex-col items-center ${darkMode ? "bg-DarkBackground" : "bg-LightBackground"}`}
     >
       {/* Header */}
-      <header
-        className={`flex w-full justify-between p-5 shadow-md ${darkMode ? "bg-DarkBlueElement" : "bg-white"}`}
-      >
-        <h1 className={`${darkMode ? "text-white" : "text-LightText"}`}>
-          Where in the world?
-        </h1>
-
-        <button
-          onClick={() => {
-            setDarkMode(!darkMode);
-          }}
-          className={`flex ${darkMode ? "text-white" : "text-LightText"}`}
-        >
-          <img
-            src={darkMode ? solidMoon : regularMoon}
-            className={`mr-2 h-5`}
-          ></img>
-          Dark Mode
-        </button>
-      </header>
+      <Header setDarkMode={setDarkMode} darkMode={darkMode} />
 
       {/* Query Bar */}
       <div className="w-10/12 md:mx-1 md:flex md:w-full md:justify-between">
@@ -129,4 +104,4 @@ const App = () => {
     </div>
   );
 };
-export default App;
+export default Home;
