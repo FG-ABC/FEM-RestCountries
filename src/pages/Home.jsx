@@ -1,19 +1,26 @@
 import { React, useEffect, useState } from "react";
-import CountryList from "../components/CountryList";
+import { useLoaderData } from "react-router-dom";
+
+import Loader from "../components/Loader";
 import Header from "../components/Header";
+import CountryList from "../components/CountryList";
+
 import searchLight from "../assets/search-light.svg";
 import searchDark from "../assets/search-dark.svg";
-import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
   const [dataList, setDataList] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [darkMode, setDarkMode] = useState();
   const storedDataList = useLoaderData().data;
   // Load datalist on page load and store in global variable
   useEffect(() => {
     setTimeout(async () => {
       setDataList(storedDataList);
-    }, 0);
+      const DarkMode = JSON.parse(localStorage.getItem("DarkMode"));
+      setDarkMode(DarkMode);
+      setLoading(false);
+    }, 1000);
   }, []);
 
   const searchHandler = (e) => {
@@ -43,7 +50,13 @@ const Home = () => {
     setDataList(filteredLIst);
   };
 
-  return (
+  return loading ? (
+    <div
+      className={`h-screen ${darkMode ? "bg-DarkBackground" : "bg-LightBackground"}`}
+    >
+      <Loader />
+    </div>
+  ) : (
     <div
       className={`flex min-h-screen w-full flex-col items-center ${darkMode ? "bg-DarkBackground" : "bg-LightBackground"}`}
     >

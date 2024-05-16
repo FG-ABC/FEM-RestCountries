@@ -10,6 +10,7 @@ const CountryCard = ({ details, darkMode }) => {
           <img
             className="h-full w-full object-cover"
             src={details.flags.svg}
+            alt={details.name.common}
           ></img>
         </div>
         <div className="p-5">

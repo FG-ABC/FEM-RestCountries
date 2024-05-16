@@ -3,6 +3,12 @@ import solidMoon from "../assets/moon-solid.svg";
 import regularMoon from "../assets/moon-regular.svg";
 
 const Header = ({ setDarkMode, darkMode }) => {
+  const changeMode = () => {
+    setDarkMode(!darkMode);
+    const newMode = JSON.stringify(!darkMode);
+    localStorage.setItem("DarkMode", newMode);
+  };
+
   return (
     <header
       className={`flex w-full justify-between p-5 shadow-md ${darkMode ? "bg-DarkBlueElement" : "bg-white"}`}
@@ -12,9 +18,7 @@ const Header = ({ setDarkMode, darkMode }) => {
       </h1>
 
       <button
-        onClick={() => {
-          setDarkMode(!darkMode);
-        }}
+        onClick={changeMode}
         className={`flex ${darkMode ? "text-white" : "text-LightText"}`}
       >
         <img

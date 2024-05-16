@@ -13,6 +13,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+
     loader: async () => {
       return await axios.get(baseURL + "all");
     },
@@ -21,16 +22,16 @@ const router = createBrowserRouter([
     path: ":CountryName",
     element: <CountryPage />,
     loader: async ({ params }) => {
-      return await axios.get(
+      const countryData = await axios.get(
         `${baseURL}name/${params.CountryName}?fullText=true`,
       );
+      return countryData;
     },
     errorElement: <NoPage />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <RouterProvider router={router} />,
 );
