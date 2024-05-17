@@ -25,7 +25,7 @@ This project creates a detailed listed view of country cards. It can filter thro
 
 - API: [REST Countries](https://restcountries.com/)
 - Challenge URL: [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
-- Live Site URL: [Live URL](https://fg-abc.github.io/FEM-/)
+- Live Site URL: [Live URL](https://fg-abc-rest-countries.vercel.app/)
 
 ## My process
 
